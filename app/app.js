@@ -4,6 +4,7 @@ const path = require("path");
 const cookieParser = require("cookie-parser");
 const logger = require("morgan");
 const layouts = require("express-ejs-layouts");
+const mainRouter = require("./routes/prompt");
 // const pw_auth_router = require("./routes/pwauth");
 // const promptRouter = require("./routes/prompt");
 
@@ -85,7 +86,7 @@ app.get("/about", (req, res, next) => {
   res.render("about");
 });
 
-// app.use(promptRouter);
+app.use(mainRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
